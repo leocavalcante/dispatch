@@ -10,6 +10,9 @@
         }
     ],
     "minimum-stability": "stable",
+    "scripts": {
+        "test": "pest"
+    },
     "autoload": {
         "psr-4": {
             "Dispatch\\": "src/"
