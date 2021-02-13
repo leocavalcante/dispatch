@@ -11,7 +11,8 @@
     ],
     "minimum-stability": "stable",
     "scripts": {
-        "test": "pest --coverage"
+        "test": ["psalm", "pest --coverage"],
+        "ci": ["psalm --shepherd", "pest"]
     },
     "autoload": {
         "psr-4": {
