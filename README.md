@@ -1,4 +1,4 @@
-# dispatch() [![CI](https://github.com/leocavalcante/dispatch/workflows/CI/badge.svg)](https://github.com/leocavalcante/dispatch/actions) [![Typed](https://shepherd.dev/github/leocavalcante/dispatch/coverage.svg)](https://shepherd.dev/github/leocavalcante/dispatch)
+# dispatch() [![CI](https://github.com/leocavalcante/dispatch/workflows/CI/badge.svg)](https://github.com/leocavalcante/dispatch/actions) [![Typed](https://shepherd.dev/github/leocavalcante/dispatch/coverage.svg)](https://shepherd.dev/github/leocavalcante/dispatch) [![codecov](https://codecov.io/gh/leocavalcante/dispatch/branch/main/graph/badge.svg?token=RYCLJ6B8QS)](https://codecov.io/gh/leocavalcante/dispatch)
 
 🕊️ Event dispatcher awareness made simple.
 
