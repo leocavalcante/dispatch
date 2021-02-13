@@ -44,7 +44,7 @@ jobs:
         run: composer run-script ci
 
       - name: Codecov
-        uses: codecov/codecov-action@v1.2
+        uses: codecov/codecov-action@v1.2.1
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
