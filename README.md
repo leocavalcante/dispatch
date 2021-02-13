@@ -28,13 +28,61 @@ dispatch(new MyEvent());
 
 The idea is exactly to make it able to dispatch events from anywhere in your code avoiding `EventDispatcherInterface` injection boilerplate.
 
+## Example
+
+```php
+use League\Event\EventDispatcher;
+use function Dispatch\{dispatch, use_dispatcher};
+
+class UpperCased {
+    public function __construct(
+        public string $result,
+    ) {}
+}
+
+function to_upper(string $str): string {
+    // Do something
+    $upper_case_str = strtoupper($str);
+
+    // And dispatch an Event without EventDispatcherInterface injection boilerplate
+    dispatch(new UpperCased($upper_case_str));
+
+    return $upper_case_str;
+}
+
+class UpperCauser {
+    public function toUpper(string $str): string {
+        // Do something
+        $upper_case_str = strtoupper($str);
+
+        // And dispatch an Event without EventDispatcherInterface injection boilerplate
+        dispatch(new UpperCased($upper_case_str));
+
+        return $upper_case_str;
+    }
+}
+
+$dispatcher = new EventDispatcher();
+$dispatcher->subscribeTo(UpperCased::class, static function (UpperCased $event): void {
+    echo "Some string was upper cased and it is: {$event->result}\n";
+});
+
+use_dispatcher($dispatcher);
+
+to_upper('dispatch');
+(new UpperCauser())->toUpper('rocks!');
+
+// Some string was upper cased and it is: DISPATCH
+// Some string was upper cased and it is: ROCKS!
+```
+
 ## Dispatchers
 
 As said, this is only a small Facade on top of `EventDispatcherInterface` providing namespaced functions to reduce dispatcher injection boilerplate.
 
 You still need a concrete implementation of an Event Dispatcher, anyone that implements the `EventDispatcherInterface` can be used, but here is a list of a few of them:
 
-- [The PHP League Event](https://event.thephpleague.com/) (my personal favorite and used on the tests)
+- [The PHP League Event](https://event.thephpleague.com/) (my personal favorite, used on tests and examples)
 - [Laminas EventManager](https://docs.laminas.dev/laminas-eventmanager/)
 - [Symfony EventDispatcher](https://symfony.com/doc/current/components/event_dispatcher.html)
 - [Doctrine Event Manager](https://www.doctrine-project.org/projects/event-manager.html)
