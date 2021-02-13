@@ -2,12 +2,16 @@
 
 namespace Dispatch\Err;
 
+/**
+ * This is the object returned when dispatch() is called and there is no $dispatcher in the Context.
+ * This avoids from throwing an Exception, but allows to be aware about what happened.
+ */
 class DispatcherNotSet implements ErrInterface
 {
-    public const MESSAGE = 'Dispatcher is not set';
+    public const REASON_PHRASE = 'Dispatcher is not set';
 
-    public function getMessage(): string
+    public function getReasonPhrase(): string
     {
-        return self::MESSAGE;
+        return self::REASON_PHRASE;
     }
 }

@@ -12,7 +12,7 @@ it('returns err if dispatcher is no set', function () {
     $err = dispatch(new TestEvent());
 
     expect($err)->toBeInstanceOf(DispatcherNotSet::class);
-    expect($err->getMessage())->toBe(DispatcherNotSet::MESSAGE);
+    expect($err->getReasonPhrase())->toBe(DispatcherNotSet::REASON_PHRASE);
 });
 
 it('dispatches an event and can desuses a dispatcher', function () {
@@ -33,5 +33,5 @@ it('dispatches an event and can desuses a dispatcher', function () {
     $err = dispatch(new TestEvent());
 
     expect($err)->toBeInstanceOf(DispatcherNotSet::class);
-    expect($err->getMessage())->toBe(DispatcherNotSet::MESSAGE);
+    expect($err->getReasonPhrase())->toBe(DispatcherNotSet::REASON_PHRASE);
 });

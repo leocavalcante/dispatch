@@ -4,5 +4,10 @@ namespace Dispatch\Err;
 
 interface ErrInterface
 {
-    public function getMessage(): string;
+    /**
+     * Tells more info about what when wrong.
+     *
+     * @return string
+     */
+    public function getReasonPhrase(): string;
 }
