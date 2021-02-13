@@ -1,0 +1,35 @@
+{
+    "name": "leocavalcante/dispatch",
+    "description": "Event dispatcher awareness made simple",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "leocavalcante",
+            "email": "lc@leocavalcante.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Dispatch\\": "src/"
+        },
+        "files": [
+            "src/dispatch.php",
+            "src/use_dispatcher.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.4",
+        "psr/event-dispatcher": "^1.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.0",
+        "league/event": "^3.0"
+    }
+}
