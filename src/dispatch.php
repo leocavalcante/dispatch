@@ -3,6 +3,7 @@
 namespace Dispatch;
 
 use Dispatch\Err\DispatcherNotSet;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**
  * @param object $event
@@ -10,9 +11,19 @@ use Dispatch\Err\DispatcherNotSet;
  */
 function dispatch(object $event): object
 {
-    if (!isset(Context::$dispatcher)) {
+    if (Context::$dispatcher === null) {
         return new DispatcherNotSet();
     }
 
     return Context::$dispatcher->dispatch($event);
+}
+
+function use_dispatcher(EventDispatcherInterface $dispatcher): EventDispatcherInterface
+{
+    return Context::$dispatcher = $dispatcher;
+}
+
+function desuse_dispatcher(): void
+{
+    Context::$dispatcher = null;
 }

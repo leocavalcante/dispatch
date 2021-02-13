@@ -6,5 +6,5 @@ use Psr\EventDispatcher\EventDispatcherInterface;
 
 final class Context
 {
-    public static EventDispatcherInterface $dispatcher;
+    public static ?EventDispatcherInterface $dispatcher = null;
 }

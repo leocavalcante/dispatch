@@ -15,8 +15,7 @@
             "Dispatch\\": "src/"
         },
         "files": [
-            "src/dispatch.php",
-            "src/use_dispatcher.php"
+            "src/dispatch.php"
         ]
     },
     "autoload-dev": {
