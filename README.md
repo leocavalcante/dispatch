@@ -1,4 +1,4 @@
-# dispatch()
+# dispatch() ![CI](https://github.com/leocavalcante/dispatch/workflows/CI/badge.svg)
 
 🕊️ Event dispatcher awareness made simple.
 
